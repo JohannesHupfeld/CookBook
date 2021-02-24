@@ -14,27 +14,28 @@
 
 # Wireframing
 ## Models
-- User
-- Recipe
+-     User
+-     Recipe
   
-  ## User
-  ### Attriburtes
+## User
+### Attriburtes
 -     name
 -     email
 -     password_digest (digest because using bcrypt)
-  ### Associations
+### Associations
 -     has_many :recipes
-  ## Recipe
-  ### Attributes
+## Recipe
+### Attributes
 -     Name
 -     Ingredients
 -     Instructions
-  ### Associations
+### Associations
 -     belongs_to :user
 
 
 # MVP
 -     Sinatra MVC application in which a user can signup, login, and logout. In the app the user can create recipes which can be viewed, edited and deleted.
+
 
 # Stretch Goals
 -     CSS (make the app visually appealing)
