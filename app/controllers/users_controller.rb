@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   
   # Render login page(form)
   get '/login' do
-    erb :login
+    erb :'/users/login'
   end
 
   # Creates session. Recieves the login form, find the user, and log user in. 
@@ -13,11 +13,17 @@ class UsersController < ApplicationController
       puts session
       redirect "users/#{@user.id}" # Redirect to users show page 
     else
-
+      redirect to '/signup'
     end
   end
 
+  # Render signup form
   get '/signup' do
+    erb :'/users/signup'  
+  end
+
+  post '/users' do
+    binding.pry
   end
 
   # User SHOW page
