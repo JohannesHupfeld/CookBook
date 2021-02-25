@@ -5,6 +5,10 @@ class UsersController < ApplicationController
     erb :login
   end
 
+  # Creates session. Recieves the login form, find the user, and log user in. 
+  post '/login' do
+    
+  end
 
   get '/signup' do
   end
