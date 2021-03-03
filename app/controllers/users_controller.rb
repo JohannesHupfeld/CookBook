@@ -13,7 +13,7 @@ class UsersController < ApplicationController
       puts session
       redirect "users/#{@user.id}" # Redirect to users show page 
     else
-      redirect to '/signup'
+      # redirect to '/login'
     end
   end
 
@@ -23,11 +23,28 @@ class UsersController < ApplicationController
   end
 
   post '/users' do
-    binding.pry
+    # {"name"=>"john", "email"=>"email@email.com", "password"=>"cats"}
+    if params[:name] != "" && params[:email] != "" && params[:password] != "" # Valid input
+      @user = User.create(params)
+      session[:user_id] = @user.id 
+      redirect "/users/#{@user.id}"
+    else
+      # Not valid input
+      # Include message?
+      redirect '/signup'
+    end
   end
 
   # User SHOW page
   get '/users/:id' do 
-    "this will be the user show route"
+    @user = User.find_by(id: params[:id])
+    erb :'/users/show'
+  end
+
+  get '/logout' do
+    session.clear
+    redirect '/'
   end
 end
+
+ 
