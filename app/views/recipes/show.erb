@@ -1,4 +1,4 @@
-<h1>Show Page for a Recipe</h1>
+<h2>Recipes</h2>
 
 <h3>Name:</h3>
 <h4><%= @recipe.name %></h4>
@@ -6,3 +6,6 @@
 <h4><%= @recipe.ingredients %></h4>
 <h3>Instructions:</h3>
 <h4><%= @recipe.instructions %></h4>
+
+<br><a href="recipes/<%= @recipe.id %>/edit">Edit Recipe</a></br>
+<a href="recipes/id/delete">Delete Recipe</a>
