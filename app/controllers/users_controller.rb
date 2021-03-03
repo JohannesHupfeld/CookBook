@@ -1,4 +1,21 @@
 class UsersController < ApplicationController
+  # Render signup form
+  get '/signup' do # Submits to post '/users'
+    erb :'/users/signup'  
+  end
+  
+  post '/users' do
+    # {"name"=>"john", "email"=>"email@email.com", "password"=>"cats"}
+    if params[:name] != "" && params[:email] != "" && params[:password] != "" # Valid input
+      @user = User.create(params)
+      session[:user_id] = @user.id 
+      redirect "/users/#{@user.id}"
+    else
+      # Not valid input
+      # Include message?
+      redirect '/signup'
+    end
+  end
   
   # Render login page(form)
   get '/login' do
@@ -14,24 +31,6 @@ class UsersController < ApplicationController
       redirect "users/#{@user.id}" # Redirect to users show page 
     else
       # redirect to '/login'
-    end
-  end
-
-  # Render signup form
-  get '/signup' do # Submits to post '/users'
-    erb :'/users/signup'  
-  end
-
-  post '/users' do
-    # {"name"=>"john", "email"=>"email@email.com", "password"=>"cats"}
-    if params[:name] != "" && params[:email] != "" && params[:password] != "" # Valid input
-      @user = User.create(params)
-      session[:user_id] = @user.id 
-      redirect "/users/#{@user.id}"
-    else
-      # Not valid input
-      # Include message?
-      redirect '/signup'
     end
   end
 
