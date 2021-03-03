@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   end
 
   # Render signup form
-  get '/signup' do
+  get '/signup' do # Submits to post '/users'
     erb :'/users/signup'  
   end
 
@@ -42,9 +42,7 @@ class UsersController < ApplicationController
   end
 
   get '/logout' do
-    session.clear
+    session.clear # Ends session
     redirect '/'
   end
 end
-
- 
