@@ -23,6 +23,7 @@ class RecipesController < ApplicationController
   end
 
   get '/recipes/recipes/:id/edit' do
+    @recipe = Recipe.find(params[:id])
     erb :'recipes/edit'
   end
 end
