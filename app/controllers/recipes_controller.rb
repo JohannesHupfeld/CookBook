@@ -19,7 +19,15 @@ class RecipesController < ApplicationController
 
   get '/recipes/:id' do
     set_recipe
-    erb :'/recipes/show'
+    if logged_in?
+      if @recipe.user == current_user
+        erb :'/recipes/show'
+      else
+        redirect "users/#{current_user.id}"
+      end
+    else
+      redirect '/'
+    end
   end
   
   # Sends user to edit.erb, which will render an edit form 
@@ -28,11 +36,18 @@ class RecipesController < ApplicationController
     erb :'/recipes/edit'
   end
   
+  # Modify/edit recipe
   patch '/recipes/:id' do
     set_recipe # Find the recipe
-    # Modify/edit recipe
-    @recipe.update(name: params[:name], ingredients: params[:ingredients], instructions: params[:instructions]) # Passing a hash(one argument) with values to update
-    redirect "recipes/#{@recipe.id}" # Redirect to show page
+    if logged_in?
+      if @recipe.user == current_user
+        @recipe.update(name: params[:name], ingredients: params[:ingredients], instructions: params[:instructions]) # Passing a hash(one argument) with values to update
+        redirect "recipes/#{@recipe.id}" # Redirect to show page
+      else
+        redirect "users/#{current_user.id}"
+    else
+      redirect '/'
+    end
   end
   
   private
