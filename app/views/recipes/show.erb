@@ -7,7 +7,7 @@
 <h3>Instructions:</h3>
 <h4><%= @recipe.instructions %></h4>
 
-<% if current_user == @recipe.user %>
+<% if authorized_to_edit?(@recipe) %>
   <br><a href="recipes/<%= @recipe.id %>/edit">Edit Recipe</a></br>
   <a href="recipes/id/delete">Delete Recipe</a>  
-<% end %>%>
+<% end %>
