@@ -1,4 +1,10 @@
 class RecipesController < ApplicationController  
+  # Index route for recipes
+  get '/recipes' do
+    @recipes = Recipe.all
+    erb :'recipes/index'
+  end
+
   # Renders a form to create a new recipe
   get '/recipes/new' do
     erb :'/recipes/new'
@@ -17,6 +23,7 @@ class RecipesController < ApplicationController
     end
   end
 
+  # Show route for recipe
   get '/recipes/:id' do
     set_recipe
     if logged_in?
@@ -45,6 +52,7 @@ class RecipesController < ApplicationController
         redirect "recipes/#{@recipe.id}" # Redirect to show page
       else
         redirect "users/#{current_user.id}"
+      end
     else
       redirect '/'
     end
@@ -55,4 +63,5 @@ class RecipesController < ApplicationController
   def set_recipe
     @recipe = Recipe.find(params[:id]) # Find the recipe
   end
+
 end
