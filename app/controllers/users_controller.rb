@@ -30,7 +30,7 @@ class UsersController < ApplicationController
       puts session
       redirect "users/#{@user.id}" # Redirect to users show page 
     else
-      # redirect to '/login'
+      redirect to '/login'
     end
   end
 
