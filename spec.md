@@ -10,11 +10,14 @@ Specs:
 - [x] Include at least one belongs_to relationship on another model (e.g. Post belongs_to User)
       recipe belongs_to a user
 - [x] Include user accounts with unique login attribute (username or email)
-- [] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying
+- [x] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying
 - [x] Ensure that users can't modify content created by other users
+      Dont show edit or delete links, used helper methods in controller to ensure edit and delete actions can 
+      only happen if current user owns it. 
 - [x] Include user input validations
+      cant create a blank user or recipe
 - [] BONUS - not required - Display validation failures to user with error message (example form URL e.g. /posts/new)
-- [] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
+- [x] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
 
 Confirm
 - [] You have a large number of small Git commits
