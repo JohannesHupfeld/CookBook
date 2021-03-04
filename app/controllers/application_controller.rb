@@ -30,5 +30,7 @@ class ApplicationController < Sinatra::Base
     def authorized_to_edit?(recipe) # Recieves a recipe object 
       recipe.user == current_user
     end
+
+    # Build helper method for redirecting if not logged in
   end
 end
