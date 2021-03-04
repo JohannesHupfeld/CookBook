@@ -47,14 +47,25 @@ class RecipesController < ApplicationController
   patch '/recipes/:id' do
     set_recipe # Find the recipe
     if logged_in?
-      if authorized_to_edit?(@recipe)
-        @recipe.update(name: params[:name], ingredients: params[:ingredients], instructions: params[:instructions]) # Passing a hash(one argument) with values to update
-        redirect "recipes/#{@recipe.id}" # Redirect to show page
+      if authorized_to_edit?(@recipe) && if params[:name] != ""
+          @recipe.update(name: params[:name], ingredients: params[:ingredients], instructions: params[:instructions]) # Passing a hash(one argument) with values to update
+          redirect "recipes/#{@recipe.id}" # Redirect to show page
+        end
       else
         redirect "users/#{current_user.id}"
       end
     else
       redirect '/'
+    end
+  end
+
+  delete '/recipes/recipes/:id' do
+    set_recipe
+    if authorized_to_edit?(@recipe)
+      @recipe.destroy 
+      redirect '/recipes'
+    else
+      redirect '/recipes'
     end
   end
   
