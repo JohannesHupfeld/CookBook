@@ -26,9 +26,15 @@ class RecipesController < ApplicationController
   # Show route for recipe
   get '/recipes/:id' do
     set_recipe
+    erb :'/recipes/show'
+  end
+  
+  # Sends user to edit.erb, which will render an edit form 
+  get '/recipes/recipes/:id/edit' do
+    set_recipe
     if logged_in?
-      if @recipe.user == current_user
-        erb :'/recipes/show'
+      if authorized_to_edit?(@recipe)
+        erb :'/recipes/edit'
       else
         redirect "users/#{current_user.id}"
       end
@@ -37,17 +43,11 @@ class RecipesController < ApplicationController
     end
   end
   
-  # Sends user to edit.erb, which will render an edit form 
-  get '/recipes/recipes/:id/edit' do
-    set_recipe
-    erb :'/recipes/edit'
-  end
-  
   # Modify/edit recipe
   patch '/recipes/:id' do
     set_recipe # Find the recipe
     if logged_in?
-      if @recipe.user == current_user
+      if authorized_to_edit?(@recipe)
         @recipe.update(name: params[:name], ingredients: params[:ingredients], instructions: params[:instructions]) # Passing a hash(one argument) with values to update
         redirect "recipes/#{@recipe.id}" # Redirect to show page
       else
