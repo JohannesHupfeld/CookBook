@@ -5,7 +5,7 @@ if ActiveRecord::Migrator.needs_migration?
 end
 
 # in order to send PATCH and DELETE requests
-use Rack::MethodOverride
+use Rack::MethodOverride # Allows me to change the http verb of a request
 use RecipesController
 use UsersController
 run ApplicationController
