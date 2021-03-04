@@ -59,6 +59,7 @@ class RecipesController < ApplicationController
     end
   end
 
+  # Delte recipe
   delete '/recipes/recipes/:id' do
     set_recipe
     if authorized_to_edit?(@recipe)
