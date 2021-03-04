@@ -7,5 +7,7 @@
 <h3>Instructions:</h3>
 <h4><%= @recipe.instructions %></h4>
 
-<br><a href="recipes/<%= @recipe.id %>/edit">Edit Recipe</a></br>
-<a href="recipes/id/delete">Delete Recipe</a>
+<% if %>
+  <br><a href="recipes/<%= @recipe.id %>/edit">Edit Recipe</a></br>
+  <a href="recipes/id/delete">Delete Recipe</a>  
+<% end %>%>
