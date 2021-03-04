@@ -24,7 +24,11 @@ class ApplicationController < Sinatra::Base
     end
 
     def current_user
-      @current_user ||= User.find_by(id: session[:user_id])
+      @current_user ||= User.find_by(id: session[:user_id]) # Memoization
+    end
+
+    def authorized_to_edit?(recipe) # Recieves a recipe object 
+      recipe.user == current_user
     end
   end
 end
