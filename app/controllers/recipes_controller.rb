@@ -11,19 +11,33 @@ class RecipesController < ApplicationController
     end
     if params[:name] && params[:ingredients] && params[:instructions] != ""
       @recipe = Recipe.create(name: params[:name], ingredients: params[:ingredients], instructions: params[:instructions], user_id: current_user.id) 
-      redirect "/recipes/#{@recipe.id}"
+      redirect "/recipes/#{@recipe.id}" # Redirect to show page
     else
       redirect '/recipes/new'
     end
   end
 
   get '/recipes/:id' do
-    @recipe = Recipe.find(params[:id])
+    set_recipe
     erb :'/recipes/show'
   end
-
+  
+  # Sends user to edit.erb, which will render an edit form 
   get '/recipes/recipes/:id/edit' do
-    @recipe = Recipe.find(params[:id])
-    erb :'recipes/edit'
+    set_recipe
+    erb :'/recipes/edit'
+  end
+  
+  patch '/recipes/:id' do
+    set_recipe # Find the recipe
+    # Modify/edit recipe
+    @recipe.update(name: params[:name], ingredients: params[:ingredients], instructions: params[:instructions]) # Passing a hash(one argument) with values to update
+    redirect "recipes/#{@recipe.id}" # Redirect to show page
+  end
+  
+  private
+
+  def set_recipe
+    @recipe = Recipe.find(params[:id]) # Find the recipe
   end
 end
