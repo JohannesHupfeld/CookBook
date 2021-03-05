@@ -24,12 +24,13 @@ class UsersController < ApplicationController
 
   # Creates session. Recieves the login form, find the user, and log user in. 
   post '/login' do
-    @user = User.find_by(email: params[:email ]) # Find user
-    if @user.authenticate(params[:password]) # Checks if they have credentials - email/password combo
+    @user = User.find_by(email: params[:email]) # Find user
+    if @user && @user.authenticate(params[:password]) # Checks if they have credentials - email/password combo
       session[:user_id] = @user.id # Log user in - create the user session # Assigning key value pair to the session hash
       puts session
       redirect "users/#{@user.id}" # Redirect to users show page 
     else
+      flash[:message] = "Invalid Email or Password, try again or sign up!"
       redirect to '/login'
     end
   end
