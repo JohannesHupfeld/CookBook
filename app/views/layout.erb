@@ -18,6 +18,9 @@
     
         <%= yield %>
 
+      <% if flash[:message] %>
+        <h3><%= flash[:message] %></h3>
+      <% end %>
       <footer class="branding">
       <div class="nav">
         <% if logged_in?  %>
@@ -27,9 +30,6 @@
         <% end %>
       </div>
       <br></br>
-      <% if flash[:message] %>
-        <h3><%= flash[:message] %></h3>
-      <% end %>
         <small>&copy; 2021 <strong>CookBook</strong></small>
       </footer>
     </div>
