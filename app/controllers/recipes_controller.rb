@@ -68,6 +68,7 @@ class RecipesController < ApplicationController
     set_recipe
     if authorized_to_edit?(@recipe)
       @recipe.destroy 
+      flash[:message] = "Recipe successfully deleted!"
       redirect '/recipes'
     else
       redirect '/recipes'
