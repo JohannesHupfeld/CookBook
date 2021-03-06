@@ -27,7 +27,6 @@ class UsersController < ApplicationController
     @user = User.find_by(email: params[:email]) # Find user
     if @user && @user.authenticate(params[:password]) # Checks if they have credentials - email/password combo
       session[:user_id] = @user.id # Log user in - create the user session # Assigning key value pair to the session hash
-      puts session
       flash[:message] = "Welcome, #{@user.name}!"
       redirect "users/#{@user.id}" # Redirect to users show page 
     else
