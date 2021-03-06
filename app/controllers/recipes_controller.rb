@@ -16,11 +16,11 @@ class RecipesController < ApplicationController
       redirect '/'
     end
     if params[:name] && params[:ingredients] && params[:instructions] != ""
-      flash[:message] = "Sounds delicious!!"
+      flash[:message] = "Tasty!! Recipe successfully created!"
       @recipe = Recipe.create(name: params[:name], ingredients: params[:ingredients], instructions: params[:instructions], user_id: current_user.id) 
       redirect "/recipes/#{@recipe.id}" # Redirect to show page
     else
-      flash[:message] = "no content added.."
+      flash[:message] = "ERROR...no content added" # Only lasts one http request 
       redirect '/recipes/new'
     end
   end
@@ -50,10 +50,12 @@ class RecipesController < ApplicationController
     set_recipe # Find the recipe
     if logged_in?
       if authorized_to_edit?(@recipe) && if params[:name] != ""
+          flash[:message] = "Recipe successfully updated!"
           @recipe.update(name: params[:name], ingredients: params[:ingredients], instructions: params[:instructions]) # Passing a hash(one argument) with values to update
           redirect "recipes/#{@recipe.id}" # Redirect to show page
         end
       else
+        flash[:message] = "ERROR...must contain at least a name"
         redirect "users/#{current_user.id}"
       end
     else
