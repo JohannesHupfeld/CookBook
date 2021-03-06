@@ -20,7 +20,7 @@ class RecipesController < ApplicationController
       @recipe = Recipe.create(name: params[:name], ingredients: params[:ingredients], instructions: params[:instructions], user_id: current_user.id) 
       redirect "/recipes/#{@recipe.id}" # Redirect to show page
     else
-      flash[:message] = "ERROR...no content added" # Only lasts one http request 
+      flash[:errors] = "ERROR...no content added" # Only lasts one http request 
       redirect '/recipes/new'
     end
   end
@@ -55,7 +55,7 @@ class RecipesController < ApplicationController
           redirect "recipes/#{@recipe.id}" # Redirect to show page
         end
       else
-        flash[:message] = "ERROR...must contain at least a name"
+        flash[:errors] = "ERROR...recipe must contain at least a name"
         redirect "users/#{current_user.id}"
       end
     else
