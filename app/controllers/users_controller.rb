@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id 
       redirect "/users/#{@user.id}"
     else
-      flash[:errors] = "All fields are required to be filled in"
+      flash[:errors] = "All fields are required to created account"
       redirect '/signup'
     end
   end
@@ -27,6 +27,7 @@ class UsersController < ApplicationController
     if @user && @user.authenticate(params[:password]) # Checks if they have credentials - email/password combo
       session[:user_id] = @user.id # Log user in - create the user session # Assigning key value pair to the session hash
       puts session
+      flash[:message] = "Welcome, #{@user.name}!"
       redirect "users/#{@user.id}" # Redirect to users show page 
     else
       flash[:errors] = "Invalid Email or Password, try again or sign up!"
