@@ -16,7 +16,7 @@ class RecipesController < ApplicationController
       redirect '/'
     end
     if params[:name] && params[:ingredients] && params[:instructions] != ""
-      flash[:message] = "Tasty!! Recipe successfully created!"
+      flash[:message] = "Tasty!! Your recipe was successfully created!"
       @recipe = Recipe.create(name: params[:name], ingredients: params[:ingredients], instructions: params[:instructions], user_id: current_user.id) 
       redirect "/recipes/#{@recipe.id}" # Redirect to show page
     else
