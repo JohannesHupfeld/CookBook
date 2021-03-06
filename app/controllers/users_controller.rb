@@ -30,7 +30,7 @@ class UsersController < ApplicationController
       puts session
       redirect "users/#{@user.id}" # Redirect to users show page 
     else
-      flash[:message] = "Invalid Email or Password, try again or sign up!"
+      flash[:errors] = "Invalid Email or Password, try again or sign up!"
       redirect to '/login'
     end
   end
