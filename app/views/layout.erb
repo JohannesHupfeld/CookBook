@@ -22,8 +22,9 @@
       <% if flash[:errors] %>
         <h3 style="color:red;"><%= flash[:errors] %></h3>
       <% end %>
-        <%= yield %>
         
+        <%= yield %>
+
       <footer class="branding">
       <div class="nav">
         <% if logged_in?  %>
