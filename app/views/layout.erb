@@ -17,9 +17,12 @@
     <div class="wrapper">
     
         <%= yield %>
-
+  
       <% if flash[:message] %>
         <h3><%= flash[:message] %></h3>
+      <% end %>
+      <% if flash[:errors] %>
+        <h3 style="color:red;"><%= flash[:errors] %></h3>
       <% end %>
       <footer class="branding">
       <div class="nav">
