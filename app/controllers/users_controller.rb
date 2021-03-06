@@ -11,8 +11,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id 
       redirect "/users/#{@user.id}"
     else
-      # Not valid input
-      # Include message?
+      flash[:errors] = "All fields are required to be filled in"
       redirect '/signup'
     end
   end
