@@ -30,7 +30,7 @@ class UsersController < ApplicationController
       flash[:message] = "Welcome, #{@user.name}!"
       redirect "users/#{@user.id}" # Redirect to users show page 
     else
-      flash[:errors] = "Invalid Email or Password, try again or sign up!"
+      flash[:errors] = "Invalid Email or Password, please try again."
       redirect to '/login'
     end
   end
