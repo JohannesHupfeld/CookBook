@@ -46,4 +46,10 @@ class UsersController < ApplicationController
     session.clear # Ends session
     redirect '/'
   end
+
+  get '/recipes/users/:id' do
+    @user = User.find_by(id: params[:id])
+    redirecet_if_not_logged_in
+    erb :'/users/show'
+  end
 end
