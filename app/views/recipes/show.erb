@@ -7,6 +7,8 @@
 <strong>Instructions:</strong>
 <p><%= @recipe.instructions %></p>
 
+<br></br>
+
 <% if authorized_to_edit?(@recipe) %>
   <br><a href="recipes/<%= @recipe.id %>/edit">Edit Recipe</a></br>
   <br></br>
