@@ -33,5 +33,11 @@ class ApplicationController < Sinatra::Base
     end
 
     # Build helper method for redirecting if not logged in
+    def redirecet_if_not_logged_in
+      if !logged_in?
+        flash[:errors] = "Must be logged in to view page"
+        redirect '/'
+      end
+    end
   end
 end
