@@ -1,11 +1,11 @@
 <h2>Recipes</h2>
 
-<h3>Name:</h3>
-<h4><%= @recipe.name %></h4>
-<h3>Ingredients:</h3>
-<h4><%= @recipe.ingredients %></h4>
-<h3>Instructions:</h3>
-<h4><%= @recipe.instructions %></h4>
+<strong>Name:</strong>
+<p><%= @recipe.name %></p>
+<strong>Ingredients:</strong>
+<p><%= @recipe.ingredients %></p>
+<strong>Instructions:</strong>
+<p><%= @recipe.instructions %></p>
 
 <% if authorized_to_edit?(@recipe) %>
   <br><a href="recipes/<%= @recipe.id %>/edit">Edit Recipe</a></br>
