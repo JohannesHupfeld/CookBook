@@ -8,9 +8,7 @@
   <br></br>
   <strong><label for="instructions">Instructions:</label></strong>
   <p><%= recipe.instructions %></p>
-  <br></br>
-  <small>By <%= recipe.user.name %></small>
-  <br></br>
-  <small>Created <%= recipe.formatted_created_at %></small>
+  <br><small>Created by <%= recipe.user.name %> on</small></br>
+  <small><%= recipe.formatted_created_at %></small>
   <br></br>
 <% end %>
