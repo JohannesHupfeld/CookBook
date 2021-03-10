@@ -3,8 +3,9 @@
 <p><%= @recipe.ingredients %></p>
 <strong>Instructions:</strong>
 <p><%= @recipe.instructions %></p>
-<p>Created on <%= @recipe.created_at %></p>
-
+<small>Created by <%= @recipe.user.name %></small>
+<br></br>
+<small>Created on <%= @recipe.created_at %></small>
 <br></br>
 
 <% if authorized_to_edit?(@recipe) %>
