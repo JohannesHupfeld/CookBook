@@ -5,7 +5,7 @@
 <p><%= @recipe.instructions %></p>
 <small>Created by <%= @recipe.user.name %></small>
 <br></br>
-<small>Created on <%= @recipe.created_at %></small>
+<small>Created on <%= @recipe.formatted_created_at %></small>
 <br></br>
 
 <% if authorized_to_edit?(@recipe) %>
