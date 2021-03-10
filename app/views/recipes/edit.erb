@@ -3,11 +3,11 @@
   <form action="/recipes/<%= @recipe.id %>" method="post">
     <input type="hidden" name="_method" value="patch">
     <label for="name">Name:</label>
-    <textarea name="name" style="width:auto, heigh:auto"><%= @recipe.name %></textarea>
+    <textarea name="name" style="width:auto, heigh:auto" placeholder="Edit recipe title here..."><%= @recipe.name %></textarea>
     <label for="ingredients">Ingredients:</label>
-    <textarea name="ingredients" style="width:auto, heigh:auto"><%= @recipe.ingredients %></textarea>
+    <textarea name="ingredients" style="width:auto, heigh:auto" placeholder="Edit recipe ingredients here..."><%= @recipe.ingredients %></textarea>
     <label for="instructions">Instructions:</label>
-    <textarea name="instructions" style="width:auto, heigh:auto"><%= @recipe.instructions %></textarea>
+    <textarea name="instructions" style="width:auto, heigh:auto" placeholder="Edit recipe instructions here..."><%= @recipe.instructions %></textarea>
     <input type="submit" value="Edit Recipe">
   </form>
  
