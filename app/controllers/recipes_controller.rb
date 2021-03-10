@@ -14,8 +14,8 @@ class RecipesController < ApplicationController
   post '/recipes' do # Create new recipe and save it to the DB
     redirecet_if_not_logged_in
     if params[:name] && params[:ingredients] && params[:instructions] != ""
-      flash[:message] = "Tasty!! Your recipe was successfully created!"
       @recipe = Recipe.create(name: params[:name], ingredients: params[:ingredients], instructions: params[:instructions], user_id: current_user.id) 
+      flash[:message] = "Tasty!! Your recipe was successfully created!"
       redirect "/recipes/#{@recipe.id}" # Redirect to show page
     else
       flash[:errors] = "ERROR...no content added" # Only lasts one http request 
@@ -45,8 +45,8 @@ class RecipesController < ApplicationController
     set_recipe # Find the recipe
     redirecet_if_not_logged_in
     if authorized_to_edit?(@recipe) && if params[:name] != ""
-      flash[:message] = "Recipe successfully updated!"
       @recipe.update(name: params[:name], ingredients: params[:ingredients], instructions: params[:instructions]) # Passing a hash(one argument) with values to update
+      flash[:message] = "Recipe successfully updated!"
       redirect "recipes/#{@recipe.id}" # Redirect to show page
     end
     else
