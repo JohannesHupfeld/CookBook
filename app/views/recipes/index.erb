@@ -2,7 +2,6 @@
 <br></br>
 <% @recipes.each do |recipe| %>
   <h2><a href="/recipes/<%= recipe.id %>"><%= recipe.name %></a></h2>
-  <br></br>
   <strong><label for="ingredients">Ingredients:</label></strong>
   <p><%= recipe.ingredients %></p>
   <br></br>
