@@ -3,5 +3,6 @@ class Recipe < ActiveRecord::Base
 
   def formatted_created_at
     self.created_at.to_date
+  end
 end
 
