@@ -57,6 +57,10 @@
 
   strong {font-family: 'Times New Roman', serif;}
 
+  label {font-family: 'Times New Roman', serif;}
+
+  input {font-family: 'Times New Roman', serif;}
+
   .main {
     overflow: hidden;
   }
