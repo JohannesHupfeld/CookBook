@@ -10,9 +10,8 @@
   <strong><label for="instructions">Instructions:</label></strong>
   <p><%= recipe.instructions %></p>
   <br></br>
-  <p>By <%= recipe.user.name %></p>
+  <small>By <%= recipe.user.name %></small>
   <br></br>
-  <h5><label for="created_at">Created:</label></h5>
-  <h6><%= recipe.created_at %></h6>
+  <small>Created <%= recipe.formatted_created_at %></small>
   <br></br>
 <% end %>
