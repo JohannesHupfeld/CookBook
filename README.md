@@ -1,6 +1,6 @@
 # Sinatra CookBook
 
-A simple Recipe Cook Book Sinatra application in which anyone can create an account with a name, email and password. they can then login to their account and create a recipe, see all recipes in the recipe index and they can also edit and delete their own recipes. 
+A simple Recipe Cook Book Sinatra application in which anyone can create an account with a name, email and password. They can then login to their account and create a recipe, see all recipes in the recipe index and they can also edit and delete their own recipes. 
 
 ## Installation
 
