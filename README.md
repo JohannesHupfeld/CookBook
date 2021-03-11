@@ -1,11 +1,43 @@
+# Sinatra CookBook
+
 A simple Recipe Cook Book Sinatra application in which anyone can create an account with a name, email and password. they can then login to their account and create a recipe, see all recipes in the recipe index and they can also edit and delete their own recipes. 
 
-LICENSE
+## Installation
 
-Copyright <2020> <JohannesHupfeld>
+Clone the repo and install dependcies
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+```bash
+$ git clone https://github.com/JohannesHupfeld/CookBook
+$ bundle install
+```
+Migrate
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+```bash
+$ rake db:migrate
+```
+## Development
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+After installation, run
+
+```bash
+rake db:migrate SINATRA_ENV=test
+```
+To Launch the developement server, run
+
+```bash
+$ shotgun 
+```
+
+..the app should be running on 'localhost:9393' by default.
+
+## Contributing
+
+Bug reports and pull requests are welcome on GitHub at https://github.com/JohannesHupfeld/CookBook. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+
+## License
+
+The code is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+
+## Code of Conduct
+
+Everyone interacting in the Sinatra-CRUD project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/JohannesHupfeld/CookBook/blob/master/CODE_OF_CONDUCT.md).
