@@ -25,7 +25,7 @@ class ApplicationController < Sinatra::Base
     end
 
     def current_user
-      @current_user ||= User.find_by(id: session[:user_id]) # Memoization
+      @current_user ||= User.find_by(id: session[:user_id]) # Memoization, first time current user is referenced within the scope of an instance of application controller this instance variable will be created and assigned if the user is found, that way a subsequent call to current user if its already populated wont hit the database again. Saves energy/speed
     end
 
     def authorized_to_edit?(recipe) # Recieves a recipe object 
