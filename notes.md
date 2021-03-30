@@ -13,3 +13,5 @@
   is represented by the variable recipe ( |recipe| ) which is a local variable (block scoped variable) and it represents a particular recipe.
 
   @user = instance variable!!!!!!
+
+  ||= (or equals)
