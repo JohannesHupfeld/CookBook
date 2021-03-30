@@ -11,3 +11,5 @@
 
 - (recipes INDEX.erb) I am itterating through all my recipes (@recipes.each) so recipe inside the block 
   is represented by the variable recipe ( |recipe| ) which is a local variable (block scoped variable) and it represents a particular recipe.
+
+  @user = instance variable!!!!!!
