@@ -28,7 +28,7 @@ class UsersController < ApplicationController
     if @user && @user.authenticate(params[:password]) # Checks if they have credentials - email/password combo
       session[:user_id] = @user.id # Log user in - create the user session # Assigning key value pair to the session hash
       flash[:message] = "Welcome, #{@user.name}!"
-      redirect "users/#{@user.id}" # Redirect to users show page 
+      redirect "users/#{@user.id}" # Redirect to users show page, interpolate   
     else
       flash[:errors] = "Invalid Email or Password, please try again."
       redirect to '/login'
