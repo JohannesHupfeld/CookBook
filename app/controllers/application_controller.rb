@@ -6,7 +6,7 @@ class ApplicationController < Sinatra::Base
     set :public_folder, 'public'
     set :views, 'app/views'
     enable :sessions
-    set :session_secret, "cookbook_secret"
+    set :session_secret, "3b4101fca2e834791318d6f386bfe920c06fed6a2f7a7ab59ca31b41171a2e15522b0830fcbd00790f7d446a679dec7480e2f22d2bf49082e848c7b920132703"
     register Sinatra::Flash
   end
 
