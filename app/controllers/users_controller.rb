@@ -47,6 +47,7 @@ class UsersController < ApplicationController
     redirect '/'
   end
 
+  # get to home page from recipes show page
   get '/recipes/users/:id' do
     @user = User.find_by(id: params[:id])
     redirecet_if_not_logged_in
