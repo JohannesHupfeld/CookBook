@@ -17,3 +17,5 @@ post request usually redirect and get render(erb).
   @user = instance variable!!!!!!
 
   ||= (or equals)
+
+  ? on helper methods becuase it returns a boolean
