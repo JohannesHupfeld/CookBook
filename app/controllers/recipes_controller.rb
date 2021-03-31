@@ -67,7 +67,7 @@ class RecipesController < ApplicationController
     end
   end
   
-  private
+  private # Can only be called from inside this class (recipe class)
 
   def set_recipe
     @recipe = Recipe.find(params[:id]) # Find the recipe
