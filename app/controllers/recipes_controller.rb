@@ -15,7 +15,7 @@ class RecipesController < ApplicationController
     redirecet_if_not_logged_in
     if params[:name] && params[:ingredients] && params[:instructions] != ""
       @recipe = Recipe.create(name: params[:name], ingredients: params[:ingredients], instructions: params[:instructions], user_id: current_user.id) 
-      flash[:message] = "Tasty!! Your recipe was successfully created!"
+      flash[:message] = "Tasty! Your recipe was successfully created!"
       redirect "/recipes/#{@recipe.id}" # Redirect to show page
     else
       flash[:errors] = "ERROR...no content added" # Only lasts one http request 
