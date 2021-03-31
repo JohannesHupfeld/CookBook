@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     # {"name"=>"john", "email"=>"email@email.com", "password"=>"cats"}
     if params[:name] != "" && params[:email] != "" && params[:password] != "" # Valid input
       @user = User.create(params)
-      session[:user_id] = @user.id 
+      session[:user_id] = @user.id
       flash[:message] = "Welcome #{@user.name}, you have successfully created an account!"
       redirect "/users/#{@user.id}"
     else
