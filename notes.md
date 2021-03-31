@@ -19,3 +19,6 @@ post request usually redirect and get render(erb).
   ||= (or equals)
 
   ? on helper methods becuase it returns a boolean
+
+
+  practice bcrypt and active record associations
