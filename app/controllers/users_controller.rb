@@ -7,8 +7,8 @@ class UsersController < ApplicationController
   post '/users' do
     # {"name"=>"john", "email"=>"email@email.com", "password"=>"cats"}
     if params[:name] != "" && params[:email] != "" && params[:password] != "" # Valid input
-      @user = User.create(params)
-      session[:user_id] = @user.id
+      @user = User.create(params) 
+      session[:user_id] = @user.id # creating a key on the session hash called user_id and assigning it to the users id that just signed up.
       flash[:message] = "Welcome #{@user.name}, you have successfully created an account!"
       redirect "/users/#{@user.id}"
     else
