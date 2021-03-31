@@ -13,7 +13,7 @@ class RecipesController < ApplicationController
   # Create new recipe
   post '/recipes' do # Create new recipe and save it to the DB
     redirecet_if_not_logged_in
-    if params[:name] && params[:ingredients] && params[:instructions] != ""
+    if params[:name] != ""
       @recipe = Recipe.create(name: params[:name], ingredients: params[:ingredients], instructions: params[:instructions], user_id: current_user.id) 
       flash[:message] = "Tasty! Your recipe was successfully created!"
       redirect "/recipes/#{@recipe.id}" # Redirect to show page
@@ -30,7 +30,7 @@ class RecipesController < ApplicationController
   end
   
   # Sends user to edit.erb, which will render an edit form 
-  get '/recipes/recipes/:id/edit' do
+  get '/recipes/:id/edit' do
     set_recipe
     redirecet_if_not_logged_in
     if authorized_to_edit?(@recipe)
@@ -56,7 +56,7 @@ class RecipesController < ApplicationController
   end
 
   # Delte recipe
-  delete '/recipes/recipes/:id' do
+  delete '/recipes/:id' do
     set_recipe
     if authorized_to_edit?(@recipe)
       @recipe.destroy 
